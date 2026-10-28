@@ -4,11 +4,13 @@ Aplicativo para Windows com contatos, mensagens livres, imagens e PDFs.
 
 ## Versão publicada
 
-[Baixar versão 2.2.2](pacotes/Painel_WhatsApp_2_2_2.zip)
+[Baixar versão 2.2.3](pacotes/Painel_WhatsApp_2_2_3.zip)
 
-A abertura de conversa agora permite duas tentativas, com até 120 segundos de espera pela interface em cada uma. Uma página vazia remove a conversa anterior antes da navegação. A repetição acontece somente antes do envio; não repete mensagens com resultado incerto. Avisos de número inválido são procurados em diálogos e alertas. O diagnóstico estrutural fica em dados/diagnostico_conversa.json, sem mensagens nem telefones.
+Ao abrir esta versão no Windows, o painel tenta criar automaticamente o atalho **Painel WhatsApp** na Área de Trabalho do usuário. Também há um botão **Criar atalho na Área de Trabalho** para recriá-lo. O atalho usa pythonw.exe para abrir direto o painel, sem digitar comandos. Os resultados dos envios continuam na janela de console. Mantenha a pasta do projeto no mesmo lugar.
 
-Isso trata falhas de carregamento; não garante resolver todo contato que falhou. Mensagens enviadas manualmente não são reconhecidas automaticamente pelo histórico: confira antes de retomar a campanha.
+A criação usa recursos do Windows e não requer administrador nem alteração de políticas de execução. Se o Windows bloquear a criação, o painel continua disponível e informa a falha. Um atalho de outro programa com o mesmo nome não será sobrescrito.
+
+Mantém as duas tentativas de abertura da versão 2.2.2, somente antes de qualquer envio. Mensagens enviadas manualmente não são reconhecidas automaticamente pelo histórico: confira antes de retomar a campanha.
 
 O ZIP inclui código-fonte e instruções. Requer Python e Playwright já instalados no projeto.
 
@@ -24,4 +26,4 @@ Clique em **Verificar e atualizar**. Novas versões precisam ser desenvolvidas, 
 
 Contatos, campanhas, anexos, sessão e histórico ficam no computador. Não envie a pasta dados para este repositório.
 
-Validação: 38 testes locais sem envio real e instalação 2.2.1 → 2.2.2 em cópia temporária com histórico preservado. O comportamento real de abertura precisa ser validado no Windows do usuário.
+Validação: 40 testes locais sem envio real e instalação 2.2.2 → 2.2.3 em cópia temporária com histórico preservado. A criação e abertura do atalho precisam ser validadas no Windows do usuário.
