@@ -1,29 +1,40 @@
 # Painel WhatsApp
 
-Aplicativo para Windows com contatos, mensagens livres, imagens e PDFs.
+Aplicativo local para Windows com contatos, mensagens livres, imagens e PDFs.
 
 ## Versão publicada
 
-[Baixar versão 2.2.3](pacotes/Painel_WhatsApp_2_2_3.zip)
+[Baixar versão 2.3.0](pacotes/Painel_WhatsApp_2_3_0.zip)
 
-Ao abrir esta versão no Windows, o painel tenta criar automaticamente o atalho **Painel WhatsApp** na Área de Trabalho do usuário. Também há um botão **Criar atalho na Área de Trabalho** para recriá-lo. O atalho usa pythonw.exe para abrir direto o painel, sem digitar comandos. Os resultados dos envios continuam na janela de console. Mantenha a pasta do projeto no mesmo lugar.
+## Assistente ChatGPT — experimental
 
-A criação usa recursos do Windows e não requer administrador nem alteração de políticas de execução. Se o Windows bloquear a criação, o painel continua disponível e informa a falha. Um atalho de outro programa com o mesmo nome não será sobrescrito.
+Abra **Assistente IA → Preparar conexão** uma vez. Isso instala PyJWT 2.10.1 e dependências de criptografia no Python do painel. Depois clique em **Continuar com ChatGPT** e autorize no navegador oficial. O login usa Authorization Code com PKCE, state, nonce e validação da assinatura do ID token. O aplicativo usa o fluxo oficial de registro dinâmico para aplicações locais; disponibilidade depende da conta e da autorização. Não usa chave de API e não há fallback para cobrança por API.
 
-Mantém as duas tentativas de abertura da versão 2.2.2, somente antes de qualquer envio. Mensagens enviadas manualmente não são reconhecidas automaticamente pelo histórico: confira antes de retomar a campanha.
+Escolha um modelo retornado pela sua conta:
 
-O ZIP inclui código-fonte e instruções. Requer Python e Playwright já instalados no projeto.
+- **Escrever mensagem** envia somente o pedido digitado à OpenAI. O resultado só vai ao campo da campanha quando você clica em **Usar texto na mensagem**. Não envia a campanha.
+- **Analisar falhas da campanha** envia apenas contagens de eventos e categorias fixas de falha. Não inclui nomes, telefones, mensagens, anexos, caminhos locais ou credenciais. Use **Ver dados do diagnóstico** para conferir.
+
+A IA não executa ferramentas, não modifica código ou histórico, não corrige números e não reenvia mensagens. A análise é sugestiva; contagens históricas não equivalem ao estado atual dos destinatários. Não há aprendizado permanente automático.
+
+Uso sujeito aos limites do plano ChatGPT. O painel não compra créditos. Revise as permissões do aplicativo em https://chatgpt.com/settings/usage e desative uso de créditos se quiser limitar à assinatura.
+
+Tokens ficam somente na memória da janela Assistente IA. Ao fechar a janela, desconectar ou expirar a autorização, é necessário entrar novamente. O painel mantém apenas o ID do host e o mapeamento de registros/identidades para reutilizar o cadastro. Não solicita offline_access nem guarda refresh tokens. Desconectar encerra a sessão local; revogue o acesso do aplicativo nas configurações do ChatGPT quando desejar.
+
+Documentação oficial usada: [registro e login](https://developers.openai.com/siwc/token-sharing-open-source/sign-in), [modelos e inferência](https://developers.openai.com/siwc/token-sharing-open-source/models-and-inference).
+
+## Atalho
+
+Removida a criação automática por PowerShell após bloqueio observado pelo AVG. O atalho manual existente continua funcionando. **Ajuda com atalho** copia o destino e explica como criar o atalho pelo Windows. Mantenha a pasta do projeto no mesmo lugar.
 
 ## Atualizar pelo painel
 
-A partir da versão 2.2.0, abra **Atualizações** e configure a fonte:
+Abra **Atualizações → Verificar e atualizar**, usando a fonte:
 
 ```
 https://raw.githubusercontent.com/rmnssmndnc-cyber/painel-whatsapp/main/atualizacoes.json
 ```
 
-Clique em **Verificar e atualizar**. Novas versões precisam ser desenvolvidas, testadas e publicadas; o programa não cria atualizações sozinho.
+Contatos, campanhas, anexos, sessão e histórico ficam no computador. Não envie a pasta dados para este repositório. O ZIP inclui o código-fonte. Python e Playwright devem estar instalados no projeto.
 
-Contatos, campanhas, anexos, sessão e histórico ficam no computador. Não envie a pasta dados para este repositório.
-
-Validação: 40 testes locais sem envio real e instalação 2.2.2 → 2.2.3 em cópia temporária com histórico preservado. A criação e abertura do atalho precisam ser validadas no Windows do usuário.
+Validação: 45 testes locais, incluindo fluxo OAuth com servidor local e tokens de teste assinados, rejeição de callbacks inválidos, ausência de credenciais no disco, resposta incompleta e anonimização do diagnóstico. Instalação 2.2.3 → 2.3.0 testada em cópia com histórico preservado. Nenhuma mensagem real foi enviada. Login real com OpenAI, elegibilidade da conta e funcionamento da interface no Windows ainda dependem de validação pelo usuário.
