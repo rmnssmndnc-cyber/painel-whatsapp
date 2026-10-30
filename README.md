@@ -4,7 +4,19 @@ Aplicativo local para Windows com contatos, mensagens livres, imagens e PDFs.
 
 ## Versão publicada
 
-[Baixar versão 2.3.0](pacotes/Painel_WhatsApp_2_3_0.zip)
+[Baixar versão 2.4.0](pacotes/Painel_WhatsApp_2_4_0.zip)
+
+## Exportar grupo — experimental
+
+Na aba Contatos, clique em **Exportar grupo**. Informe o nome do grupo e, opcionalmente, o total de participantes. Clique em **1. Abrir WhatsApp**, abra o grupo e a lista completa de participantes. Volte ao painel e clique em **2. Selecionar lista**. No navegador, clique em uma linha de participante. O programa marca a lista e tenta percorrê-la sem abrir conversas privadas ou enviar mensagens.
+
+Revise a prévia e use **3. Salvar planilha**. O arquivo XLSX tem Nome, Telefone e Observação, além dos dados da coleta. Telefones repetidos são agrupados. Telefones que não aparecem ou não têm DDI reconhecível ficam em branco; nomes são os exibidos no WhatsApp, não identidades verificadas. Homônimos sem telefone precisam de conferência.
+
+Alcançar o fim da lista visível não prova que todos os participantes foram exibidos. Compare a prévia com o total do grupo. Mudanças na interface podem impedir a seleção ou a leitura. A versão é experimental e ainda precisa de teste na interface real do WhatsApp do usuário. Os resultados ficam em dados/exportacoes_grupos e não são enviados à IA ou adicionados à campanha.
+
+A criação de planilhas ocorre localmente, usando somente a biblioteca padrão do Python. A função compartilha o bloqueio de execução com os envios, para não disputar a sessão.
+
+A sequência de segunda mensagem após resposta continua em desenvolvimento e não faz parte desta versão.
 
 ## Assistente ChatGPT — experimental
 
@@ -37,4 +49,4 @@ https://raw.githubusercontent.com/rmnssmndnc-cyber/painel-whatsapp/main/atualiza
 
 Contatos, campanhas, anexos, sessão e histórico ficam no computador. Não envie a pasta dados para este repositório. O ZIP inclui o código-fonte. Python e Playwright devem estar instalados no projeto.
 
-Validação: 45 testes locais, incluindo fluxo OAuth com servidor local e tokens de teste assinados, rejeição de callbacks inválidos, ausência de credenciais no disco, resposta incompleta e anonimização do diagnóstico. Instalação 2.2.3 → 2.3.0 testada em cópia com histórico preservado. Nenhuma mensagem real foi enviada. Login real com OpenAI, elegibilidade da conta e funcionamento da interface no Windows ainda dependem de validação pelo usuário.
+Validação: 52 testes locais, incluindo deduplicação, DDI, telefones ausentes, leitura em páginas simuladas, interrupção, planilha sem fórmulas executáveis, autenticação da IA e preservação do histórico. Instalação 2.3.0 → 2.4.0 verificada em cópia temporária e sintaxe JavaScript conferida. O download do navegador de teste falhou neste ambiente; não houve teste visual ou leitura real de grupo. Nenhuma mensagem foi enviada.
