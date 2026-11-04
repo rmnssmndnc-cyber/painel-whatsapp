@@ -4,7 +4,9 @@ Aplicativo local para Windows com contatos, mensagens livres, imagens e PDFs.
 
 ## Versão publicada
 
-[Baixar versão 2.4.3](pacotes/Painel_WhatsApp_2_4_3.zip)
+[Baixar versão 2.4.4](pacotes/Painel_WhatsApp_2_4_4.zip)
+
+2.4.4: reconhece o contêiner com aria-label Lista de membros dentro de pane-side, sem confundi-lo com conversas. Erros de seleção permanecem na mensagem final após o prazo. O HTML fornecido pelo operador reproduziu a rejeição na 2.4.3 e a seleção/leitura de suas 10 linhas na 2.4.4, com geometria simulada em jsdom. Esse arquivo privado não está no pacote. A rolagem completa no WhatsApp real ainda precisa ser confirmada.
 
 2.4.3: reconhece linhas de participantes dentro de #main quando Dados do grupo e a contagem de membros estão presentes no mesmo painel. Rejeita mensagens, conversas e dados de contato. Testes DOM com jsdom usam a estrutura de listitem/cell-frame-title fornecida pelo operador; geometria simulada. Não houve leitura real do grupo. Telefones ausentes na lista continuam em branco.
 
@@ -55,4 +57,4 @@ https://raw.githubusercontent.com/rmnssmndnc-cyber/painel-whatsapp/main/atualiza
 
 Contatos, campanhas, anexos, sessão e histórico ficam no computador. Não envie a pasta dados para este repositório. O ZIP inclui o código-fonte. Python e Playwright devem estar instalados no projeto.
 
-Validação: 62 testes locais (incluindo bloqueios temporários, persistentes, outros erros de disco e preservação do erro original), incluindo deduplicação, DDI, telefones ausentes, leitura em páginas simuladas, interrupção, planilha sem fórmulas executáveis, autenticação da IA e preservação do histórico. Instalação 2.4.2 → 2.4.3 verificada em cópia temporária e sintaxe JavaScript conferida. O download do navegador de teste falhou neste ambiente; não houve teste visual ou leitura real de grupo. Nenhuma mensagem foi enviada.
+Validação: 64 testes locais (incluindo bloqueios temporários, persistentes, outros erros de disco e preservação do erro original), incluindo deduplicação, DDI, telefones ausentes, leitura em páginas simuladas, interrupção, planilha sem fórmulas executáveis, autenticação da IA e preservação do histórico. Instalação 2.4.3 → 2.4.4 verificada em cópia temporária e sintaxe JavaScript conferida. O download do navegador de teste falhou neste ambiente; não houve teste visual ou leitura real de grupo. Nenhuma mensagem foi enviada.
