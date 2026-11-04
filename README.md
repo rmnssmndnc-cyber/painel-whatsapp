@@ -4,7 +4,9 @@ Aplicativo local para Windows com contatos, mensagens livres, imagens e PDFs.
 
 ## Versão publicada
 
-[Baixar versão 2.4.4](pacotes/Painel_WhatsApp_2_4_4.zip)
+[Baixar versão 2.4.5](pacotes/Painel_WhatsApp_2_4_5.zip)
+
+2.4.5: procura o ancestral rolável dentro do painel de membros, inclusive acima de pane-side. Ignora caixas sem intervalo de rolagem. Detecta rolagem travada e informa resultado parcial quando termina antes da contagem declarada. Teste DOM simula 240 membros virtualizados e verifica que todos são percorridos. Telefones não exibidos na lista continuam sem preenchimento; consulta automática aos perfis não foi implementada. Validação no WhatsApp real ainda pendente.
 
 2.4.4: reconhece o contêiner com aria-label Lista de membros dentro de pane-side, sem confundi-lo com conversas. Erros de seleção permanecem na mensagem final após o prazo. O HTML fornecido pelo operador reproduziu a rejeição na 2.4.3 e a seleção/leitura de suas 10 linhas na 2.4.4, com geometria simulada em jsdom. Esse arquivo privado não está no pacote. A rolagem completa no WhatsApp real ainda precisa ser confirmada.
 
@@ -57,4 +59,4 @@ https://raw.githubusercontent.com/rmnssmndnc-cyber/painel-whatsapp/main/atualiza
 
 Contatos, campanhas, anexos, sessão e histórico ficam no computador. Não envie a pasta dados para este repositório. O ZIP inclui o código-fonte. Python e Playwright devem estar instalados no projeto.
 
-Validação: 64 testes locais (incluindo bloqueios temporários, persistentes, outros erros de disco e preservação do erro original), incluindo deduplicação, DDI, telefones ausentes, leitura em páginas simuladas, interrupção, planilha sem fórmulas executáveis, autenticação da IA e preservação do histórico. Instalação 2.4.3 → 2.4.4 verificada em cópia temporária e sintaxe JavaScript conferida. O download do navegador de teste falhou neste ambiente; não houve teste visual ou leitura real de grupo. Nenhuma mensagem foi enviada.
+Validação: 67 testes locais (incluindo bloqueios temporários, persistentes, outros erros de disco e preservação do erro original), incluindo deduplicação, DDI, telefones ausentes, leitura em páginas simuladas, interrupção, planilha sem fórmulas executáveis, autenticação da IA e preservação do histórico. Instalação 2.4.4 → 2.4.5 verificada em cópia temporária e sintaxe JavaScript conferida. O download do navegador de teste falhou neste ambiente; não houve teste visual ou leitura real de grupo. Nenhuma mensagem foi enviada.
