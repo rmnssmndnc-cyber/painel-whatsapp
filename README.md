@@ -4,7 +4,9 @@ Aplicativo local para Windows com contatos, mensagens livres, imagens e PDFs.
 
 ## Versão publicada
 
-[Baixar versão 2.4.6](pacotes/Painel_WhatsApp_2_4_6.zip)
+[Baixar versão 2.4.7](pacotes/Painel_WhatsApp_2_4_7.zip)
+
+2.4.7: extrai nomes apenas do título do participante, preserva nomes longos e usa o índice da linha na deduplicação para tolerar mudanças de posição. Não exclui nomes de uma letra nem une homônimos. 72 testes locais passaram; instalação 2.4.6 para 2.4.7 preservou os dados na cópia de teste. Consulta de telefones nos dados individuais ainda não implementada. Validação desta versão no WhatsApp real pendente.
 
 2.4.6: reconhece role=dialog com aria-label Pesquisar membros. Abra Ver tudo antes de selecionar a lista e mantenha a pesquisa vazia. Percorre a rolagem interna e ignora separadores por letras. Validado com o HTML recebido (geometria simulada) e lista virtualizada; teste real no Windows ainda pendente. HTML privado não incluído. Telefones ausentes na lista continuam em branco.
 
